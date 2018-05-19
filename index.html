@@ -7,13 +7,77 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Sticky Footer Template for Bootstrap</title>
+    <title>Sample cartography</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="/bootstrap.css" rel="stylesheet">
+    <!-- Map style to be instered here -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+
+        #map {
+        position: absolute;
+        width: 790px;
+        height: 500px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        #legend {
+        position: absolute;
+        width: 200px;
+        height: 241px;
+        margin: 10px;
+        padding: 10px 10px;
+        background-color: white;
+        }
+
+        #p1 {
+        background-color:hsla(209,75%,57%,0.2);
+        margin-left: 3px;
+        text-indent: 6px;
+        width: 17%;
+        font-size: 14px;
+        }
+
+        #p2 {
+        background-color:hsla(42,82%,54%,0.2);
+        margin-left: 3px;
+        text-indent: 6px;
+        width: 22%;
+        font-size: 14px;
+        }
+
+        #p3 {
+        background-color:hsla(0,64%,39%,0.2);
+        margin-left: 3px;
+        text-indent: 6px;
+        width: 59%;
+        font-size: 14px;
+        }
+
+        #p4 {
+        background-color:hsla(300,81%,56%,0.2);
+        margin-left: 3px;
+        text-indent: 6px;
+        width: 1.5%;
+        font-size: 14px;
+        }
+
+        #p5 {
+        background-color:hsla(131,67%,24%,0.2);
+        margin-left: 3px;
+        text-indent: 6px;
+        width: 1%;
+        font-size: 14px;
+        }
+
+    </style>
+        <!-- End of map style -->
 
   </head>
 
@@ -24,12 +88,39 @@
       <h1 class="mt-5">Sticky footer</h1>
       <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
       <p>Use <a href="../sticky-footer-navbar">the sticky footer with a fixed navbar</a> if need be, too.</p>
+
+                      <div id='map'>
+
+                            <script>
+                            mapboxgl.accessToken = 'pk.eyJ1IjoiZGF2aWQtZSIsImEiOiJjaXFxaHYxeHMwMDZ4aHJua2M1a21vaTU2In0.UukZTqkOsD_Y_0bTKAYomA';
+                            var map = new mapboxgl.Map({
+                            container: 'map', // container id
+                            style: 'mapbox://styles/david-e/cjhc5is8s0c6m2rpoxsk8wdav', //hosted style id
+                            center: [44.770, 41.390], // starting position
+                            zoom: 5.8 // starting zoom
+                            });
+                            </script>
+
+                              <div id='legend'>
+                                  <p class="lead">Ethnicites of South Caucasus</p>
+                                      <div class='session'>
+                                          <p id="p1">Armenians</p>
+                                          <p id="p2">Georgians</p>
+                                          <p id="p3">Azeri</p>
+                                          <p id="p4">Abkhaz</p>
+                                          <p id="p5">Ossetians</p>
+                                     </div>
+                              </div>
+                        </div>
+
     </main>
+
 
     <footer class="footer">
       <div class="container">
         <span class="text-muted">Place sticky footer content here.</span>
       </div>
     </footer>
+
   </body>
 </html>
